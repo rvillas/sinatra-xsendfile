@@ -13,7 +13,7 @@ module Sinatra
 
       header_key = opts[:header] || (settings.respond_to?(:xsf_header) && settings.xsf_header) ||
                                     'X-SendFile'
-      path = File.expand_path(path).gsub(settings.public, '') if header_key == 'X-Accel-Redirect'
+      path = File.expand_path(path).gsub(settings.public_folder, '') if header_key == 'X-Accel-Redirect'
 
       response[header_key] = path
 
